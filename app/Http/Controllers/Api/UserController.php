@@ -115,14 +115,11 @@ class UserController extends Controller
     {
         $user = User::findByToken($token);
         if($user){
+            $patrons = User::findPatrons($user->id);
             $response = [
                 'status' => "success",
-                'data' => [
-                    'avatar' => $user->avatar,
-                    'user' => $user->name
-                ]
+                'data' => $patrons
             ];
-
         } 
         else {
             $response = [
@@ -136,14 +133,11 @@ class UserController extends Controller
     {
         $user = User::findByToken($token);
         if($user){
+            $patronizes = User::findPatronizes($user->id);
             $response = [
                 'status' => "success",
-                'data' => [
-                    'avatar' => $user->avatar,
-                    'user' => $user->name
-                ]
+                'data' => $patronizes
             ];
-
         } 
         else {
             $response = [
