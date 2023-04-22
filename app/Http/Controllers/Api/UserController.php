@@ -64,6 +64,11 @@ class UserController extends Controller
             if($user->token!=$data["token"]){
                 $user->update(['token' => $data["token"]]);
             }
+            $response = [
+                'exist' => "true",
+                'token' => $data["token"]
+            ];
+            return response($response, 201);
         } else {
             $user = new User;
             $user->twitch_id = $data["id"];
@@ -77,11 +82,12 @@ class UserController extends Controller
                 $user->prefix = $data["login"];
             }
             $user->save();
+            $response = [
+                'exist' => "false",
+                'token' => $data["token"]
+            ];
+            return response($response, 201);
         }
-        $response = [
-            'token' => $data["token"]
-        ];
-        return response($response, 201);
     }
     public function data($token)
     {
