@@ -53,16 +53,15 @@ class UserController extends Controller
         $user = User::findByTwitchId($data["id"]);
         if($user){
             if($user->avatar!=$data["profile_image_url"]){
-                $user->update(['avatar' => $data["profile_image_url"]]);
+                $user->avatar = $data["profile_image_url"];
             }
             if($user->name!=$data["login"]){
-                $user->update(['name' => $data["login"]]);
+                $user->name = $data["login"];
             }
             if($user->email!=$data["email"]){
-                $user->update(['email' => $data["email"]]);
+                $user->email = $data["email"];
             }
             if($user->token!=$data["token"]){
-                // $user->update(['token' => $data["token"]]);
                 $user->token = $data["token"];
             }
             $user->save();
