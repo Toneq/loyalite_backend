@@ -26,4 +26,9 @@ class User extends Authenticatable
     public static function findByTwitchId($id){
         return User::where('twitch_id', $id)->first();
     }
+
+    public static function findByToken($token){
+        return User::where('token', $token)->first();
+    }
+
 }

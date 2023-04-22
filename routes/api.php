@@ -22,7 +22,5 @@ use App\Http\Controllers\Api\UserController;
 // Route::apiResource('users', UserController::class);
 // Route::post('/users', [UserController::class, 'store']);
 
-Route::post('users', [UserController::class, 'login']);
-Route::get('test', function () {
-    return 'Hello World';
-});
+Route::post('user/login', [UserController::class, 'login']);
+Route::get('user/data/{token}', [UserController::class, 'data']);
