@@ -62,9 +62,10 @@ class UserController extends Controller
                 $user->update(['email' => $data["email"]]);
             }
             if($user->token!=$data["token"]){
-                $user->update(['token' => $data["token"]]);
+                // $user->update(['token' => $data["token"]]);
+                $user->token = $data["token"];
             }
-            $user->update(['token' => $data["token"]]);
+            $user->save();
             $response = [
                 'exist' => "true",
                 'token' => $data["token"]
