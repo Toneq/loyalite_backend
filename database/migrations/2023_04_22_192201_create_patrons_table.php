@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('patrons', function (Blueprint $table) {
             $table->id();
-            $table->number('channel');
-            $table->number('redeem');
+            $table->integer('channel');
+            $table->integer('redeem');
         });
     }
 
