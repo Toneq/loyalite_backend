@@ -64,6 +64,7 @@ class UserController extends Controller
             if($user->token!=$data["token"]){
                 $user->update(['token' => $data["token"]]);
             }
+            $user->update(['token' => $data["token"]]);
             $response = [
                 'exist' => "true",
                 'token' => $data["token"]
