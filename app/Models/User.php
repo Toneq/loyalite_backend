@@ -31,4 +31,19 @@ class User extends Authenticatable
         return User::where('token', $token)->first();
     }
 
+    public static function findPatrons($user){
+        $patrons = User::select('users.name', 'users.avatar')
+            ->join('patrons', 'patrons.redeem', '=', 'users.id')
+            ->where('patrons.channel', $user)
+            ->get();
+        return $patrons;
+    }
+
+    public static function findPatronizes($user){
+        $patronizes = User::select('users.name', 'users.avatar')
+            ->join('patrons', 'patrons.channel', '=', 'users.id')
+            ->where('patrons.redeem', $user)
+            ->get();
+        return $patronizes;
+    }
 }

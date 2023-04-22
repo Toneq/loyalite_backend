@@ -111,5 +111,47 @@ class UserController extends Controller
         }        
         return response($response, 201);
     }
+    public function patrons($token)
+    {
+        $user = User::findByToken($token);
+        if($user){
+            $response = [
+                'status' => "success",
+                'data' => [
+                    'avatar' => $user->avatar,
+                    'user' => $user->name
+                ]
+            ];
+
+        } 
+        else {
+            $response = [
+                'status' => "error",
+                'data' => "Brak użytkownika"
+            ];
+        }        
+        return response($response, 201);
+    }
+    public function patronizes($token)
+    {
+        $user = User::findByToken($token);
+        if($user){
+            $response = [
+                'status' => "success",
+                'data' => [
+                    'avatar' => $user->avatar,
+                    'user' => $user->name
+                ]
+            ];
+
+        } 
+        else {
+            $response = [
+                'status' => "error",
+                'data' => "Brak użytkownika"
+            ];
+        }        
+        return response($response, 201);
+    }
 
 }

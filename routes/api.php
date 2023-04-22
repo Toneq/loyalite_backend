@@ -24,3 +24,5 @@ use App\Http\Controllers\Api\UserController;
 
 Route::post('user/login', [UserController::class, 'login']);
 Route::get('user/data/{token}', [UserController::class, 'data']);
+Route::get('user/patrons/{token}', [UserController::class, 'patrons']);
+Route::get('user/patronizes/{token}', [UserController::class, 'patronizes']);
