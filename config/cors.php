@@ -15,11 +15,11 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
+    'paths' => ['*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://loyalite.ct8.pl'],
+    'allowed_origins' => ['https://loyalite.ct8.pl', 'http://localhost', 'http://localhost:8000', 'http://localhost:8080'],
 
     'allowed_origins_patterns' => [],
 
