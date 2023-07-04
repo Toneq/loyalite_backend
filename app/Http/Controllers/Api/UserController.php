@@ -17,24 +17,24 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        return $this->userService->store($request);
+        return $this->userService->setUser($request);
     }
 
     public function login(Request $request)
     {
-        return $this->userService->login($request);
+        return $this->userService->Login($request);
     }
     public function data($token)
     {
-        return $this->userService->data($token);
+        return $this->userService->getData($token);
     }
     public function patrons($token)
     {
-        return $this->userService->patrons($token);
+        return $this->userService->findPatrons($token);
     }
     public function patronizes($token)
     {
-        return $this->userService->patronizes($token);
+        return $this->userService->findPatronizes($token);
     }
 
 }

@@ -6,7 +6,7 @@ use App\Models\User;
 
 class UserService
 {
-    public function store($request){
+    public function setUser($request){
         //xx
         $data = $request->all();
         $user = User::findByTwitchId($data["id"]);
@@ -64,7 +64,7 @@ class UserService
         }        
     }
 
-    public function data($token){
+    public function getData($token){
         $user = User::findByToken($token);
         if($user){
             $response = [
@@ -85,7 +85,7 @@ class UserService
         return response($response, 201);        
     }
 
-    public function patrons($token){
+    public function findPatrons($token){
         $user = User::findByToken($token);
         if($user){
             $patrons = User::findPatrons($user->id);
@@ -103,7 +103,7 @@ class UserService
         return response($response, 201);        
     }
 
-    public function patronizes($token){
+    public function findPatronizes($token){
         $user = User::findByToken($token);
         if($user){
             $patronizes = User::findPatronizes($user->id);
