@@ -28,7 +28,7 @@ class EmoteService
             'icons' => $icons,
             'emotes' => $emotes
         ];
-        return json_encode($response);
+        return response($response, 201);
     }
 
     public function getUserEmotes($data){
