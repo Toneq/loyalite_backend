@@ -7,8 +7,10 @@ use App\Models\User;
 
 class EmoteService
 {
-    public function getUserEmotesAndIcons($data){
-        $user = User::where('token', $data->token)->get();
+    public function getUserEmotesAndIcons($request){
+        $data = $request->all();
+
+        $user = User::where('token', $data["token"])->get();
 
         if(!$user){
             $response = [

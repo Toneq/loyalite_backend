@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Services\EmoteService;
+use Illuminate\Http\Request;
 
 class EmoteController extends Controller
 {
@@ -14,8 +15,8 @@ class EmoteController extends Controller
         $this->emoteService = $emoteService;
     }
 
-    public function get_user_emotes_and_icons($data){
-        return $this->emoteService->getUserEmotesAndIcons($data);
+    public function get_user_emotes_and_icons(Request $request){
+        return $this->emoteService->getUserEmotesAndIcons($request);
     }
 
     public function get_user_emotes($data){
