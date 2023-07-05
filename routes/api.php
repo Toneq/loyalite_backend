@@ -27,4 +27,4 @@ Route::post('user/login', [UserController::class, 'login']);
 Route::get('user/data/{token}', [UserController::class, 'data']);
 Route::get('user/patrons/{token}', [UserController::class, 'patrons']);
 Route::get('user/patronizes/{token}', [UserController::class, 'patronizes']);
-Route::get('get-user-emotes-and-icons', [EmoteController::class, 'get_user_emotes_and_icons']);
+Route::get('get-user-emotes-and-icons/{token}', [EmoteController::class, 'get_user_emotes_and_icons']);
