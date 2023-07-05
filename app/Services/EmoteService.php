@@ -17,9 +17,9 @@ class EmoteService
             return response($response, 404);           
         }
 
-        $icons = Emote::where('user_id', $user->id)->get()
+        $icons = Emote::where('channel_id', $user->id)->get()
                     ->where('type', 'icon');
-        $emotes = Emote::where('user_id', $user->id)->get()
+        $emotes = Emote::where('channel_id', $user->id)->get()
                     ->where('type', 'emote');
 
         $response = [
@@ -39,7 +39,7 @@ class EmoteService
             return response($response, 404);           
         }
 
-        $emotes = Emote::where('user_id', $user->id)->get()
+        $emotes = Emote::where('channel_id', $user->id)->get()
                     ->where('type', 'emote');
 
         $response = [
@@ -58,7 +58,7 @@ class EmoteService
             return response($response, 404);           
         }
 
-        $icons = Emote::where('user_id', $user->id)->get()
+        $icons = Emote::where('channel_id', $user->id)->get()
                     ->where('type', 'icon');
 
         $response = [
