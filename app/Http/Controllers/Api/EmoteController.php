@@ -15,7 +15,8 @@ class EmoteController extends Controller
     }
 
     public function get_user_emotes_and_icons($data){
-        return $this->emoteService->getUserEmotesAndIcons($data);
+        return $data;
+        // return $this->emoteService->getUserEmotesAndIcons($data);
     }
 
     public function get_user_emotes($data){
