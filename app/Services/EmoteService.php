@@ -24,8 +24,7 @@ class EmoteService
             ->where('type', 'emote');
 
         $response = [
-            'icons' => json_decode($icons),
-            'emotes' => $emotes
+            'icons' => $icons
         ];
 
         return response()->json($response, 201);
