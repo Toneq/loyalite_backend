@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['https://loyalite.ct8.pl', 'http://localhost', 'http://localhost:8000', 'http://localhost:8080'],
+    'allowed_origins' => ['https://loyalite.ct8.pl', 'http://localhost', 'http://localhost:8000', 'http://localhost:8080', 'http://localhost:4200'],
 
     'allowed_origins_patterns' => [],
 
