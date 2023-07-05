@@ -19,9 +19,9 @@ class EmoteService
             return response($response, 404);           
         }
 
-        $icons = Emote::where('channel_id', $user->id)->get()
+        $icons = Emote::where('channel_id', $user[0]["id"])->get()
                     ->where('type', 'icon');
-        $emotes = Emote::where('channel_id', $user->id)->get()
+        $emotes = Emote::where('channel_id', $user[0]["id"])->get()
                     ->where('type', 'emote');
 
         $response = [
