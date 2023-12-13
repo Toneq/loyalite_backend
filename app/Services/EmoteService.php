@@ -29,6 +29,7 @@ class EmoteService
             ->get();
 
         $response = [
+            'avatar' => $user->avatar,
             'icons' => $icons,
             'emotes' => $emotes
         ];
