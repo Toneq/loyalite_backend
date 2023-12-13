@@ -8,10 +8,10 @@ use App\Models\User;
 class EmoteService
 {
     public function getUserEmotesAndIcons($token){
-        $user = User::where('token', $data->token)
-            ->orWhere('name', $data->token)
-            ->orWhere('channel_id', $data->token)
-            ->get();
+        $user = User::where('twitch_id', $token)
+            ->orWhere('token', $token)
+            ->orWhere('name', $token)
+            ->first();
 
         if(!$user){
             $response = [
@@ -20,11 +20,11 @@ class EmoteService
             return response($response, 400);           
         }
 
-        $icons = Emote::where('channel_id', $user[0]["id"])
+        $icons = Emote::where('channel_id', $user->id)
             ->where('type', 'icon')
             ->get();
 
-        $emotes = Emote::where('channel_id', $user[0]["id"])
+        $emotes = Emote::where('channel_id', $user->id)
             ->where('type', 'emote')
             ->get();
 
@@ -40,7 +40,7 @@ class EmoteService
         $user = User::where('token', $data->token)
             ->orWhere('name', $data->token)
             ->orWhere('channel_id', $data->token)
-            ->get();
+            ->first();
 
         if(!$user){
             $response = [
@@ -62,7 +62,7 @@ class EmoteService
         $user = User::where('token', $data->token)
             ->orWhere('name', $data->token)
             ->orWhere('channel_id', $data->token)
-            ->get();
+            ->first();
 
         if(!$user){
             $response = [

@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('resources_img', function (Blueprint $table) {
             $table->id();
             $table->integer('channel_id');
-            $table->string('name');
+            $table->string('name', 30);
             $table->integer('tier');
-            $table->string('avatar');
-            $table->string('prefix');
-            $table->string('type');
+            $table->string('image');
+            $table->string('prefix', 5)->nullable();
+            $table->string('type', 7);
             $table->timestamps();
         });
     }
