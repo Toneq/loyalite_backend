@@ -7,7 +7,6 @@ use App\Models\User;
 class UserService
 {
     public function setUser($request){
-        //xx
         $data = $request->all();
         $user = User::findByTwitchId($data["id"]);
         if($user){
@@ -18,7 +17,7 @@ class UserService
             'token' => $data["token"],
             "test" => $data
         ];
-        return response($response, 201);
+        return response($response, 200);
     }
 
     public function login($request){
@@ -42,7 +41,7 @@ class UserService
                 'exist' => "true",
                 'token' => $data["token"]
             ];
-            return response($response, 201);
+            return response($response, 200);
         } else {
             $user = new User;
             $user->twitch_id = $data["id"];
@@ -60,7 +59,7 @@ class UserService
                 'exist' => "false",
                 'token' => $data["token"]
             ];
-            return response($response, 201);
+            return response($response, 200);
         }        
     }
 
@@ -74,15 +73,16 @@ class UserService
                     'user' => $user->name
                 ]
             ];
-
+            $response_code = 200;
         } 
         else {
             $response = [
                 'status' => "error",
                 'data' => "Brak użytkownika"
             ];
+            $response_code = 400;
         }        
-        return response($response, 201);        
+        return response($response, $response_code);        
     }
 
     public function findPatrons($token){
@@ -93,14 +93,16 @@ class UserService
                 'status' => "success",
                 'data' => $patrons
             ];
+            $response_code = 200;
         } 
         else {
             $response = [
                 'status' => "error",
                 'data' => "Brak użytkownika"
             ];
+            $response_code = 400;
         }        
-        return response($response, 201);        
+        return response($response, $response_code);        
     }
 
     public function findPatronizes($token){
@@ -118,6 +120,6 @@ class UserService
                 'data' => "Brak użytkownika"
             ];
         }        
-        return response($response, 201);
+        return response($response, $response_code);
     }
 }

@@ -8,13 +8,16 @@ use App\Models\User;
 class EmoteService
 {
     public function getUserEmotesAndIcons($token){
-        $user = User::where('token', $token)->get();
+        $user = User::where('token', $data->token)
+            ->orWhere('name', $data->token)
+            ->orWhere('channel_id', $data->token)
+            ->get();
 
         if(!$user){
             $response = [
                 'message' => "Brak użytkownika"
             ];
-            return response($response, 404);           
+            return response($response, 400);           
         }
 
         $icons = Emote::where('channel_id', $user[0]["id"])
@@ -30,17 +33,20 @@ class EmoteService
             'emotes' => $emotes
         ];
 
-        return response()->json($response, 201);
+        return response()->json($response, 200);
     }
 
     public function getUserEmotes($data){
-        $user = User::where('token', $data->token)->get();
+        $user = User::where('token', $data->token)
+            ->orWhere('name', $data->token)
+            ->orWhere('channel_id', $data->token)
+            ->get();
 
         if(!$user){
             $response = [
                 'message' => "Brak użytkownika"
             ];
-            return response($response, 404);           
+            return response($response, 400);           
         }
 
         $emotes = Emote::where('channel_id', $user->id)->get()
@@ -49,17 +55,20 @@ class EmoteService
         $response = [
             'emotes' => $emotes
         ];
-        return response($response, 201);
+        return response($response, 200);
     }
 
     public function getUserIcons($data){
-        $user = User::where('token', $data->token)->get();
+        $user = User::where('token', $data->token)
+            ->orWhere('name', $data->token)
+            ->orWhere('channel_id', $data->token)
+            ->get();
 
         if(!$user){
             $response = [
                 'message' => "Brak użytkownika"
             ];
-            return response($response, 404);           
+            return response($response, 400);           
         }
 
         $icons = Emote::where('channel_id', $user->id)->get()
@@ -68,6 +77,6 @@ class EmoteService
         $response = [
             'icons' => $icons
         ];
-        return response($response, 201);
+        return response($response, 200);
     }
 }
