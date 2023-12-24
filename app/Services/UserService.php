@@ -70,7 +70,8 @@ class UserService
                 'status' => "success",
                 'data' => [
                     'avatar' => $user->avatar,
-                    'user' => $user->name
+                    'user' => $user->name,
+                    'id' => $user->id
                 ]
             ];
             $response_code = 200;

@@ -80,4 +80,16 @@ class EmoteService
         ];
         return response($response, 200);
     }
+
+    public function newIcon($request){
+        $sendResource = Emote::create([
+            'channel_id' => $request->channel_id,
+            'name' => $request->name,
+            'tier' => $request->tier,
+            'type' => $request->type,
+            'image' => $request->image
+        ]);
+        return $sendResource;
+    }
+
 }

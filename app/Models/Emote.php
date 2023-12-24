@@ -10,4 +10,12 @@ class Emote extends Model
     use HasFactory;
 
     protected $table = 'resources_img';
+
+    protected $fillable = [
+        'channel_id',
+        'name',
+        'tier',
+        'type',
+        'image'
+    ];
 }

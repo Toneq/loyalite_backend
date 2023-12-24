@@ -26,4 +26,8 @@ class EmoteController extends Controller
     public function get_user_icons($data){
         return $this->emoteService->getUserIcons($data);
     }
+
+    public function send_user_icons(Request $request){
+        return $this->emoteService->newIcon($request);
+    }
 }
