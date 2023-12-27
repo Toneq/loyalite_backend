@@ -30,4 +30,8 @@ class EmoteController extends Controller
     public function send_user_icons(Request $request){
         return $this->emoteService->newIcon($request);
     }
+
+    public function delete_user_resource(Request $request){
+        return $this->emoteService->deleteResource($request);
+    }
 }

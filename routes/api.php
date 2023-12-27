@@ -29,3 +29,4 @@ Route::get('user/patrons/{token}', [UserController::class, 'patrons']);
 Route::get('user/patronizes/{token}', [UserController::class, 'patronizes']);
 Route::get('get-user-emotes-and-icons/{token}', [EmoteController::class, 'get_user_emotes_and_icons']);
 Route::post('send-user-icons', [EmoteController::class, 'send_user_icons']);
+Route::post('delete-user-resource', [EmoteController::class, 'delete_user_resource']);

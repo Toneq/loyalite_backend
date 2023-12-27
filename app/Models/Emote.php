@@ -16,6 +16,7 @@ class Emote extends Model
         'name',
         'tier',
         'type',
-        'image'
+        'image',
+        'id'
     ];
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "121ea3a2fffe49b3ef9aa4d064b28c19",
+    "content-hash": "46ee432a6deb98f765662808dd499ecb",
     "packages": [
         {
             "name": "brick/math",
@@ -129,6 +129,56 @@
                 }
             ],
             "time": "2023-12-11T17:09:12+00:00"
+        },
+        {
+            "name": "devpark/laravel-przelewy24",
+            "version": "v3.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devpark/laravel-przelewy24.git",
+                "reference": "3683a4d6507ebe27e52bd8ffab39c6085b6d8e2a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devpark/laravel-przelewy24/zipball/3683a4d6507ebe27e52bd8ffab39c6085b6d8e2a",
+                "reference": "3683a4d6507ebe27e52bd8ffab39c6085b6d8e2a",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "guzzlehttp/guzzle": ">=6.3",
+                "laravel/framework": ">=5.0",
+                "php": ">=7.1.0",
+                "ramsey/uuid": "^3 || ^4"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.1",
+                "mockery/mockery": "^0.9.6",
+                "phpunit/phpunit": "^5.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Devpark\\Transfers24\\Providers\\Transfers24ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Devpark\\Transfers24\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Laravel przelewy24.pl integration",
+            "support": {
+                "issues": "https://github.com/devpark/laravel-przelewy24/issues",
+                "source": "https://github.com/devpark/laravel-przelewy24/tree/v3.0.3"
+            },
+            "time": "2023-04-05T21:31:02+00:00"
         },
         {
             "name": "dflydev/dot-access-data",

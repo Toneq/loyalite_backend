@@ -92,4 +92,8 @@ class EmoteService
         return $sendResource;
     }
 
+    public function deleteResource($request){
+        $resource = Emote::find($request);
+        $resource[0]->delete();
+    }
 }
