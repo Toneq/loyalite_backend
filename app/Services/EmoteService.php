@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Emote;
 use App\Models\User;
+use App\Models\Product;
 
 class EmoteService
 {
@@ -28,10 +29,14 @@ class EmoteService
             ->where('type', 'emote')
             ->get();
 
+        $products = Product::where('channel_id', $user->id)
+            ->get();
+
         $response = [
             'avatar' => $user->avatar,
             'icons' => $icons,
-            'emotes' => $emotes
+            'emotes' => $emotes,
+            'tiers' => $products
         ];
 
         return response()->json($response, 200);
