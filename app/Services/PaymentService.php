@@ -75,7 +75,7 @@ class PaymentService
         do {
             $uuid = Uuid::uuid4();
             $uuidString = $uuid->toString();
-            $exists = Payment::where('uuid', $uuidString)->exists();
+            $exists = Payment::where('payment', $uuidString)->exists();
         } while ($exists);
 
         return $uuidString;
