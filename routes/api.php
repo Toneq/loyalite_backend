@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\EmoteController;
+use App\Http\Controllers\Api\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,3 +31,4 @@ Route::get('user/patronizes/{token}', [UserController::class, 'patronizes']);
 Route::get('get-user-emotes-and-icons/{token}', [EmoteController::class, 'get_user_emotes_and_icons']);
 Route::post('send-user-icons', [EmoteController::class, 'send_user_icons']);
 Route::post('delete-user-resource', [EmoteController::class, 'delete_user_resource']);
+Route::post('create-payment', [PaymentController::class, 'create_payment']);
