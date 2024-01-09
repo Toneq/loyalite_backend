@@ -29,7 +29,8 @@ class PaymentService
         $service = env('SERVICE_DPAY');
         $value = number_format($product->price * $months, 2, '.', '');
 
-        $checksum = Hash::make("{$service}|{$secretHash}|{$value}|{$urlSuccess}|{$urlFail}|{$urlIpn}");
+        // $checksum = Hash::make("{$service}|{$secretHash}|{$value}|{$urlSuccess}|{$urlFail}|{$urlIpn}");
+        $checksum = hash('sha256', "{$service}|{$secretHash}|{$value}|{$urlSuccess}|{$urlFail}|{$urlIpn}");
         $paymentUuid = self::generateUniqueUuid();
 
         $data = [
@@ -43,9 +44,9 @@ class PaymentService
             "paysafecard" => true,
             "paypal" => true,
             "nobanks" => false,
-            "email" => "",
-            "client_name" => "",
-            "client_surname" => "",
+            // "email" => "",
+            // "client_name" => "",
+            // "client_surname" => "",
             "custom" => $paymentUuid
         ];
     

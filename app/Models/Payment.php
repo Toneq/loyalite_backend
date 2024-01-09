@@ -10,4 +10,6 @@ class Payment extends Model
     use HasFactory;
 
     protected $table = 'payments';
+
+    protected $fillable = ['payment', 'transaction', 'price', 'product', 'months'];
 }
