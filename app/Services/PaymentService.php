@@ -26,13 +26,14 @@ class PaymentService
         $urlFail = env('URL_FAIL_DPAY');
         $urlIpn = env('URL_IPN_DPAY');
         $secretHash = env('SECRET_HASH_DPAY');
+        $service = env('SERVICE_DPAY');
         $value = number_format($product->price * $months, 2, '.', '');
 
-        $checksum = Hash::make("{$product->name}|{$secretHash}|{$value}|{$urlSuccess}|{$urlFail}|{$urlIpn}");
+        $checksum = Hash::make("{$service}|{$secretHash}|{$value}|{$urlSuccess}|{$urlFail}|{$urlIpn}");
         $paymentUuid = self::generateUniqueUuid();
 
         $data = [
-            "service" => $product->name,
+            "service" => $service,
             "value" => $value,
             "url_success" => $urlSuccess,
             "url_fail" => $urlFail,
